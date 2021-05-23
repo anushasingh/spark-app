@@ -5,14 +5,15 @@ import org.apache.spark.sql.DataFrame
 object Main extends InitSpark {
   def main(args: Array[String]): Unit = {
 
-    val version = spark.version
-    println("SPARK VERSION = " + version)
+//    val version = spark.version
+//    println("SPARK VERSION = " + version)
+//
+//    val employeeDf: DataFrame = spark.read.jdbc(jdbc_url, "employee", connectionProperties).select(
+//      "fullName");
+//
+//    employeeDf.printSchema()
 
-    val employeeDf: DataFrame = spark.read.jdbc(jdbc_url, "employee", connectionProperties).select(
-      "fullName");
-
-    employeeDf.printSchema()
-
-    close()
+    import app.spark.ApplicationComponentRegistry._
+    reportRegistryService.runReports()
   }
 }

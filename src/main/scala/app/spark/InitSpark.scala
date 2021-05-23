@@ -2,7 +2,6 @@ package app.spark
 
 import java.util.Properties
 
-import org.apache.log4j.{Level, LogManager, Logger}
 import org.apache.spark.SparkContext
 import org.apache.spark.sql.{SQLContext, SparkSession}
 

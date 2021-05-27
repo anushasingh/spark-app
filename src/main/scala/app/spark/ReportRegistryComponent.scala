@@ -1,14 +1,16 @@
 package app.spark
 
-import app.spark.employee.EmployeeOutputComponent
+import app.spark.user.UserOutputComponent
 
 trait ReportRegistryComponent {
-    this: EmployeeOutputComponent =>
-val reportRegistryService: ReportRegistryService
-  class ReportRegistryService{
+  this: UserOutputComponent =>
+  val reportRegistryService: ReportRegistryService
+
+  class ReportRegistryService {
     def runReports(): Unit = {
-      outputEmployeeCollection.getOutputDataFrame
+      userOutputCollection.buildTransformations
       spark.close()
     }
   }
+
 }

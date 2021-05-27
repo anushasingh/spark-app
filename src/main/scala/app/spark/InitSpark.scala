@@ -19,10 +19,10 @@ trait InitSpark {
 
   val connectionProperties = new Properties
   connectionProperties.put("user", "sa")
-  connectionProperties.put("password", "mypassword")
+  connectionProperties.put("password", "password")
   connectionProperties.put("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver")
 
-  val jdbc_url = "jdbc:sqlserver://localhost:1433;database=Org"
+  val jdbc_url = "jdbc:sqlserver://localhost:1433;database=db"
 
   def close(): Unit = {
     spark.close()

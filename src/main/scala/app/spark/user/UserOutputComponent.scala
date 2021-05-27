@@ -18,7 +18,7 @@ trait UserOutputComponent extends InitSpark
 
       val df = userDF
         .join(expenseDF, userDF.col("id") === expenseDF.col("userId"))
-        .groupBy("city").agg(avg("amount").alias("avgAmount")).orderBy(desc("avgAmount")).select("*")
+        .groupBy("city").agg(avg("amount").alias("avgAmount")).orderBy(desc("avgAmount"))
       df.show()
       df
     }

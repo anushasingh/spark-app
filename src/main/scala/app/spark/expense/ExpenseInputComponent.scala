@@ -9,7 +9,7 @@ trait ExpenseInputComponent extends InitSpark {
 
     class InputExpenseCollection {
         val getInputDataFrame: DataFrame = {
-          val df = spark.read.jdbc(jdbc_url, "Expense", connectionProperties).select("*")
+          val df = spark.read.jdbc(jdbc_url, "Expense", connectionProperties)
           df.show()
           df
         }

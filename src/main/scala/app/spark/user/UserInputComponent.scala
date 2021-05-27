@@ -9,7 +9,7 @@ trait UserInputComponent extends InitSpark {
 
     class UserInputCollection {
         val getInputDataFrame: DataFrame = {
-          val df = spark.read.jdbc(jdbc_url, "Users", connectionProperties).select("*")
+          val df = spark.read.jdbc(jdbc_url, "Users", connectionProperties)
           df.show()
           df
         }

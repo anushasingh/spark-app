@@ -1,8 +1,8 @@
 create database db;
 
 use db;
-create table Users(id int, name VARCHAR(100), city VARCHAR(100), profession VARCHAR(100))
-create table Expense(id int, userId int, amount int, category VARCHAR(100))
+create table Users(id int PRIMARY KEY, name VARCHAR(100), city VARCHAR(100), profession VARCHAR(100))
+create table Expense(id int PRIMARY KEY, userId int FOREIGN KEY REFERENCES Users(id) , amount int, category VARCHAR(100))
 
 insert into Users values(1, 'Anjali', 'Delhi', 'Artist')
 insert into Users values(2, 'Vikas', 'UP', 'Dev')

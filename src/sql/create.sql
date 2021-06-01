@@ -116,7 +116,3 @@ insert into Expense values(97, 9, 890, 'education');
 insert into Expense values(98, 10, 700, 'grocery');
 insert into Expense values(99, 6, 100, 'education');
 insert into Expense values(100, 1, 11, 'grocery');
-
-
-select * from Users
-select * from Expense

@@ -6,9 +6,8 @@ import org.apache.spark.sql.{DataFrame, Dataset, Row}
 import org.apache.spark.sql.functions._
 
 
-trait UserOutputComponent extends InitSpark
-  with UserInputComponent
-  with ExpenseOutputComponent {
+trait UserOutputComponent extends InitSpark {
+  this: UserInputComponent with ExpenseOutputComponent =>
   val userOutputCollection: UserOutputCollection
 
   class UserOutputCollection {
@@ -19,7 +18,6 @@ trait UserOutputComponent extends InitSpark
       val df = userDF
         .join(expenseDF, userDF.col("id") === expenseDF.col("userId"))
         .groupBy("city").agg(avg("amount").alias("avgAmount")).orderBy(desc("avgAmount"))
-      df.show()
       df
     }
   }

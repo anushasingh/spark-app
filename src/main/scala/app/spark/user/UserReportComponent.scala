@@ -1,13 +1,20 @@
 package app.spark.user
 
-trait UserReportComponent   {
+import app.spark.DataFrameComponent
+
+trait UserReportComponent  extends DataFrameComponent{
   this: UserOutputComponent =>
 
   val userExpenseReportService: UserExpenseReportService
 
   class UserExpenseReportService {
-    def generateReport(): Unit ={
-      userOutputCollection.buildTransformations
+    def generateReport(): Unit = {
+
+      val transformations = userOutputCollection.buildTransformations
+      transformations.show()
+      write("user3_expense", transformations)
     }
   }
 }
+
+

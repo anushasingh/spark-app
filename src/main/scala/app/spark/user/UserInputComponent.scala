@@ -1,16 +1,15 @@
 package app.spark.user
 
-import app.spark.InitSpark
+import app.spark.DataFrameComponent
 import org.apache.spark.sql.DataFrame
 
-trait UserInputComponent extends InitSpark {
+trait UserInputComponent extends DataFrameComponent {
 
   val userInputCollection :UserInputCollection
 
     class UserInputCollection {
         val getInputDataFrame: DataFrame = {
-          val df = spark.read.jdbc(jdbc_url, "Users", connectionProperties)
-          df.show()
+          val df = read("Users")
           df
         }
     }

@@ -1,16 +1,15 @@
 package app.spark.expense
 
-import app.spark.InitSpark
+import app.spark.DataFrameComponent
 import org.apache.spark.sql.DataFrame
 
-trait ExpenseInputComponent extends InitSpark {
+trait ExpenseInputComponent extends DataFrameComponent {
 
   val inputExpenseCollection :InputExpenseCollection
 
     class InputExpenseCollection {
         val getInputDataFrame: DataFrame = {
-          val df = spark.read.jdbc(jdbc_url, "Expense", connectionProperties)
-          df.show()
+          val df = read("Expense")
           df
         }
     }

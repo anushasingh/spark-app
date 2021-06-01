@@ -1,14 +1,14 @@
 package app.spark
 
-import app.spark.user.UserOutputComponent
+import app.spark.user.UserReportComponent
 
 trait ReportRegistryComponent {
-  this: UserOutputComponent =>
+  this: UserReportComponent =>
   val reportRegistryService: ReportRegistryService
 
   class ReportRegistryService {
     def runReports(): Unit = {
-      userOutputCollection.buildTransformations
+      userExpenseReportService.generateReport()
       spark.close()
     }
   }

@@ -12,7 +12,7 @@ trait UserReportComponent  extends DataFrameComponent{
 
       val transformations = userOutputCollection.buildTransformations
       transformations.show()
-      write("user3_expense", transformations)
+      write("user_expense", transformations)
     }
   }
 }
